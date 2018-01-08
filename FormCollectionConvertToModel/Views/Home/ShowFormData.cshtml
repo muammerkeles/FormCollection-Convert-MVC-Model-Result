@@ -1,0 +1,82 @@
+﻿@model FormCollectionConvertToModel.Models.SampleViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Results</title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+
+        .ul,li{
+            list-style-type:none;
+        }
+        .ml li label{display:inline-block;width:150px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Results as Model View</h3> 
+        <ul class="ml list-group-item">
+            <li><label>Name</label> @Model.Name</li>
+            <li><label>Surname</label> @Model.SurName</li>
+            <li><label>Birthdate</label> @Model.BirthDate.ToString("dd MMMM yyyy")</li>
+            <li><label>Email</label> @Model.Email</li>
+        </ul>
+    <h3>Summary</h3>
+        <p>
+            if we need to get form collection as Model when View Pages uses without Model<br />
+            (as exception) this project will be able to helpful.
+            <br /><br />
+            I have a project a View page created before me, by ex colleagues.
+            <br />
+            It was imposible make it apply Model, becaouse there were many input and foreign elements have to use together on somewhere.
+            <br />
+            i created a own method like that converting FormCollection.
+            <br /><br />
+            As a conclusion this way might be evaluate for different trouble to solve.
+            <br />
+        </p>
+        <p>
+            Controller side codes;
+            <br />
+            <code>
+&nbsp;&nbsp;public ActionResult ShowFormData(FormCollection fc)
+<br />
+&nbsp;&nbsp;{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;model = new FormCollectionToModel<SampleViewModel>(fc).GetModel;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return View(model);
+<br />
+&nbsp;&nbsp;}
+</code>
+        </p>
+    <p>
+        Please also check it out that <b class="text-danger">GetConvertfunction</b>  function on <b class="text-danger">Convertor</b> Class.
+    </p>
+    <p>
+        <code>
+            &nbsp;PropertyInfo propertyInfo = result.GetType().GetProperty(k.Name);
+            <br />
+            &nbsp; if (sd != null)
+            <br />
+            &nbsp; {
+            <br />
+            &nbsp;&nbsp;&nbsp; var _Sd = Convert.ChangeType(sd, propertyInfo.PropertyType);
+            <br />
+            &nbsp;&nbsp;&nbsp; propertyInfo.SetValue(result, _Sd, null);
+            <br />
+            &nbsp; }
+        </code>
+    </p>
+    </div>
+</body>
+</html>

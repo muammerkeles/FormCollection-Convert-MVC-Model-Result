@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Convert Form Collection To Model - Example </title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                @using (Html.BeginForm("ShowFormData", "home", FormMethod.Post, new { @id = "form1", @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>There is a simple form below (without "Model") </h4>
+                        <p>All inputs have been created like html element  
+                        <code> &lt;input type=&quot;text&quot; /&gt;</code>
+                        </p>
+                        <p>W'll post the form data to Controller side. Then W'll see on next page that Convert to Model type results.</p>
+                        <hr />
+                        <div class="form-group">
+                            <label for="Name" class="control-label col-md-2">Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="Name" id="name" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Surname" class="control-label col-md-2">Surname</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="Surname" id="Surname" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Birthdate" class="control-label col-md-2">Birthdate</label>
+                            <div class="col-md-10">
+                                <input type="date" class="form-control" name="Birthdate" id="Birthdate" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email" class="control-label col-md-2">Email</label>
+                            <div class="col-md-10">
+                                <input type="email" class="form-control" name="Email" id="Email"  required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Send Form" class="btn btn-primary hide" />
+                                <input type="submit" value="Send Form" class="btn btn-info" />
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+    </div>
+    </div>
+    <script>
+        $(function(){
+           /* var form1 = $("#form1");
+            form1.submit(function () {
+                $.ajax({
+                    url: "Url.Action("SendForm","Home")",
+                    type: "POST",
+                    dataType: "json",
+                    data: form1.serialize(),
+                    success: function (r) {
+
+                    }, error: function (a, b, c) {
+                        alert("Error : " + c);
+                        console.log("error a ", a);
+                        console.log("error b ", b);
+                        console.log("error c ", c);
+
+                    }
+                })
+            });
+            */
+        });
+    </script>
+</body>
+</html>
