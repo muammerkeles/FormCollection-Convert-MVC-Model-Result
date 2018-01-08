@@ -1,4 +1,4 @@
-# FormCollection-Convert-MVC-Model-Result
+# FormCollection-Convert-To-MVC-Model
 if we need to get form collection as Model when View Pages uses without Model (exceptions) this project will be able to helpful.
 
 I have a project a View page created before me, by ex colleagues. 
