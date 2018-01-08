@@ -1,5 +1,5 @@
 # FormCollection-Convert-To-MVC-Model
-if we need to get form collection as Model when View Pages uses without Model (exceptions) this project will be able to helpful.
+if we need to get form collection as Model when View Page uses without Model (exceptions) this project will be able to helpful.
 
 I have a project a View page created before me, by ex colleagues. 
 It was imposible make it apply Model, becaouse there were many inputs and foreign elements have to use together on somewhere. 
